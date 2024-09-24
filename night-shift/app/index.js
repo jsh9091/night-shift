@@ -1,32 +1,26 @@
-import clock from "clock";
-import * as document from "document";
-import { preferences } from "user-settings";
+import document from "document";
 
+import * as clock from "./clock";
+import * as newfile from "./newfile";
+import { toFahrenheit } from "../common/utils";
+import { units } from "user-settings";
 
-function zeroPad(i) {
-  if (i < 10) {
-    i = "0" + i;
-  }
-  return i;
-}
+const time = document.getElementById("time");
+const details = document.getElementById("details");
 
-// Update the clock every minute
-clock.granularity = "minutes";
+clock.initialize("minutes", data => {
+  // clock ticked
+  time.text = data.time;
+});
 
-// Get a handle on the <text> element
-const myLabel = document.getElementById("myLabel");
+newfile.initialize(data => {
+  // fresh weather file received
 
-// Update the <text> element every tick with the current time
-clock.ontick = (evt) => {
-  let today = evt.date;
-  let hours = today.getHours();
-  if (preferences.clockDisplay === "12h") {
-    // 12h format
-    hours = hours % 12 || 12;
-  } else {
-    // 24h format
-    hours = zeroPad(hours);
-  }
-  let mins = zeroPad(today.getMinutes());
-  myLabel.text = `${hours}:${mins}`;
-}
+  // If the user-settings temperature == F and the result data.unit == Celsius then we convert to Fahrenheit
+  // Use this only if you use getWeatherData() function without the optional parameter.
+  data = units.temperature === "F" ? toFahrenheit(data): data;
+
+  details.text = `It's ${data.temperature}\u00B0 ${data.unit} and ${data.condition} (${data.conditionCode}) in ${data.location}`;
+
+  clock.tick();
+});

@@ -1,3 +1,5 @@
-<svg class="background">
-  <text id="myLabel" />
+<svg>
+  <rect id="background" />
+  <text id="time">13:37</text>
+  <textarea id="details"></textarea>
 </svg>
