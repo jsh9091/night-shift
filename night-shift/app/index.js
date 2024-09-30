@@ -43,8 +43,12 @@ clock.initialize("minutes", data => {
  * Receive and process new tempature data. 
  */
 newfile.initialize(data => {
-  data = toFahrenheit(data);
-  let degreeSymbol = '\u00B0';
-  details.text = `${data.temperature}` + degreeSymbol + `F`;
+  if (companion.permissions.granted("access_location")) {
+    data = toFahrenheit(data);
+    let degreeSymbol = "\u00B0";
+    details.text = `${data.temperature}` + degreeSymbol + `F`;
+  } else {
+    details.text = "----";
+  }
   clock.tick();
 });
