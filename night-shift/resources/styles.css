@@ -26,6 +26,6 @@ text {
   text-length: 128;
   text-anchor: middle;
   fill: white;
-  x: 0;
-  y: $-30;
+  x: "55";
+  y: "200";
 }

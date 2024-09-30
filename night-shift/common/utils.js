@@ -25,8 +25,9 @@ export function zeroPad(i) {
   * @param {object} data - WeatherData -
   */
   export function toFahrenheit(data) {
+
     if (data.unit.toLowerCase() === "celsius") {
-       data.temperature =  Math.round((data.temperature * 1.8)+32);
+       data.temperature =  Math.round((data.temperature * 1.8) + 32);
        data.unit = "Fahrenheit";
     }
     
