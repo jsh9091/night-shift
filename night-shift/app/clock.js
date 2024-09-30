@@ -23,7 +23,6 @@
  */
 
 import clock from "clock";
-import * as util from "../common/utils";
 
 let handleCallback;
 
@@ -44,7 +43,7 @@ export function initialize(granularity, callback) {
  */
 export function tick(evt) {
   const today = evt ? evt.date : new Date();
-  const mins = util.zeroPad(today.getMinutes());
+  const mins = zeroPad(today.getMinutes());
   let hours = today.getHours();
 
   // 12h format
@@ -53,4 +52,16 @@ export function tick(evt) {
   if (typeof handleCallback === "function") {
     handleCallback({ time: `${hours}:${mins}` });
   }
+}
+
+
+/**
+ * Add zero in front of numbers < 10
+ * @param {number} i
+ */
+function zeroPad(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
 }

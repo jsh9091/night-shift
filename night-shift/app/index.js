@@ -26,8 +26,6 @@ import document from "document";
 
 import * as clock from "./clock";
 import * as newfile from "./newfile";
-import { toFahrenheit } from "../common/utils";
-import { units } from "user-settings";
 import { me as appbit } from "appbit";
 
 const time = document.getElementById("time");
@@ -53,3 +51,17 @@ newfile.initialize(data => {
   }
   clock.tick();
 });
+
+/**
+* Convert Celsius to Fahrenheit
+* @param {object} data - WeatherData -
+*/
+function toFahrenheit(data) {
+
+  if (data.unit.toLowerCase() === "celsius") {
+     data.temperature =  Math.round((data.temperature * 1.8) + 32);
+     data.unit = "Fahrenheit";
+  }
+  
+  return data
+}
