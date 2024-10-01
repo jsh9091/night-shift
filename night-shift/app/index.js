@@ -31,8 +31,8 @@ import { me as appbit } from "appbit";
 clock.granularity = "minutes";
 
 // Get a handle on the <text> elements
-const clockLabel = document.getElementById("time");
-const details = document.getElementById("details");
+const clockLabel = document.getElementById("timeLabel");
+const tempLabel = document.getElementById("tempLabel");
 
 /**
  * Update the display of clock values.
@@ -72,9 +72,9 @@ newfile.initialize(data => {
   if (appbit.permissions.granted("access_location")) {
     data = toFahrenheit(data);
     let degreeSymbol = "\u00B0";
-    details.text = `${data.temperature}` + degreeSymbol + `F`;
+    tempLabel.text = `${data.temperature}` + degreeSymbol + `F`;
   } else {
-    details.text = "----";
+    tempLabel.text = "----";
   }
 });
 

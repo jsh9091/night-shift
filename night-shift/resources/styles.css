@@ -1,10 +1,32 @@
+/*
+ * MIT License
+ * 
+ * Copyright (c) 2024 Joshua Horvath
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 text {
-  font-size: 32;
+  font-size: 40;
   font-family: System-Regular;
   font-weight: regular;
-  text-length: 32;
-  text-anchor: middle;
-  fill: white;
+  fill: red;
 }
 
 #background {
@@ -13,19 +35,70 @@ text {
   fill: black;
 }
 
-#time {
-  x: 50%;
-  y: 25%;
-  font-size: 60;
+#amLabel {
+  font-size: 30;
+  text-length: 80;
+  text-anchor: start;
+  x: 8%;
+  y: 15%;
 }
 
-#details {
-  font-size: 38;
-  font-family: System-Regular;
-  font-weight: regular;
-  text-length: 128;
+#pmLabel {
+  font-size: 30;
+  text-length: 80;
+  text-anchor: start;
+  x: 22%;
+  y: 15%;
+}
+
+#timeLabel {
+  font-size: 100;
+  font-family: System-Bold;
+  text-length: 80;
   text-anchor: middle;
-  fill: white;
-  x: "55";
-  y: "200";
+  x: 50%;
+  y: 45%;
+}
+
+#dateLabel {
+  font-family: System-Bold;
+  text-length: 80;
+  text-anchor: middle;
+  x: 50%;
+  y: 60%;
+}
+
+#stepCountLabel {
+  text-length: 80;
+  text-anchor: start;
+  x: 8%;
+  y: 80%;
+}
+
+#stepsIcon {
+  x: 8%;
+  y: 80%;
+  width: "35";
+  height: "25" 
+}
+
+#floorsLabel {
+  text-length: 80;
+  text-anchor: start;
+  x: 8%;
+  y: 93%;
+}
+
+#tempLabel {
+  text-length: 128;
+  text-anchor: end;
+  x: 92%;
+  y: 80%;
+}
+
+#batteryLabel {
+  text-length: 128;
+  text-anchor: end;
+  x: 92%;
+  y: 93%;
 }
