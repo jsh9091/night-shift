@@ -26,6 +26,7 @@ import document from "document";
 import clock from "clock";
 import * as newfile from "./newfile";
 import { me as appbit } from "appbit";
+import { today as activity } from "user-activity";
 
 // Update the clock every minute
 clock.granularity = "minutes";
@@ -36,6 +37,8 @@ const pmLabel = document.getElementById("pmLabel");
 const timeLabel = document.getElementById("timeLabel");
 const dateLabel = document.getElementById("dateLabel");
 const tempLabel = document.getElementById("tempLabel");
+const stepCountLabel = document.getElementById("stepCountLabel");
+const floorsLabel = document.getElementById("floorsLabel");
 
 /**
  * Update the display of clock values.
@@ -45,6 +48,7 @@ clock.ontick = (evt) => {
   amPmDisplay(evt);
   updateTimeDisplay(evt);
   updateDateField(evt);
+  updateExerciseFields() ;
 };
 
 /**
@@ -118,6 +122,34 @@ function updateDateField(evt) {
   let year = evt.date.getUTCFullYear();
 
   dateLabel.text = `${month}` + " " + `${dayOfMonth}` + ", " + `${year}`;
+}
+
+/**
+ * Updates exercise fields in the GUI. 
+ */
+function updateExerciseFields() {
+  if (appbit.permissions.granted("access_activity")) {
+    stepCountLabel.text = getSteps().formatted;
+    floorsLabel.text = activity.adjusted.elevationGain;
+  } else {
+    stepCountLabel.text = "----";
+    floorsLabel.text = "----";
+  }
+}
+
+/**
+ * Gets and formats user step count for the day.
+ * @returns 
+ */
+function getSteps() {
+  let val = activity.adjusted.steps || 0;
+  return {
+    raw: val,
+    formatted:
+      val > 999
+        ? `${Math.floor(val / 1000)},${("00" + (val % 1000)).slice(-3)}`
+        : val,
+  };
 }
 
 /**

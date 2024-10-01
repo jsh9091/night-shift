@@ -28,13 +28,12 @@
   <text id="pmLabel" />
 
   <text id="timeLabel" />
-  
   <text id="dateLabel" />
 
-  <text id="stepCountLabel">2,076</text>
+  <text id="stepCountLabel" />
   <!--<image id="stepsIcon" href="steps.png" /> -->
 
-  <text id="floorsLabel">12</text>
+  <text id="floorsLabel" />
   <!--<image id="floorsIcon" href="floors.png" /> -->
 
   <text id="tempLabel" />
