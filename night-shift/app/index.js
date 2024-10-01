@@ -33,7 +33,8 @@ clock.granularity = "minutes";
 // Get a handle on the <text> elements
 const amLabel = document.getElementById("amLabel");
 const pmLabel = document.getElementById("pmLabel");
-const clockLabel = document.getElementById("timeLabel");
+const timeLabel = document.getElementById("timeLabel");
+const dateLabel = document.getElementById("dateLabel");
 const tempLabel = document.getElementById("tempLabel");
 
 /**
@@ -41,6 +42,8 @@ const tempLabel = document.getElementById("tempLabel");
  * @param {*} evt 
  */
 clock.ontick = (evt) => {
+
+  updateDateField(evt);
 
   // get time information from API
   let todayDate = evt.date;
@@ -53,7 +56,7 @@ clock.ontick = (evt) => {
   let displayMins = zeroPad(mins);
 
   // display time on main clock
-  clockLabel.text = `${hours}:${displayMins}`;
+  timeLabel.text = `${hours}:${displayMins}`;
 
   amPmDisplay(rawHours)
 };
@@ -81,6 +84,33 @@ function amPmDisplay(rawHours) {
     amLabel.text = "";
     pmLabel.text = "PM";
   }
+}
+
+/**
+ * Sets current date in GUI. 
+ * @param {*} evt 
+ */
+function updateDateField(evt) {
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  let month = monthNames[evt.date.getMonth()];
+  let dayOfMonth = evt.date.getDate();
+  let year = evt.date.getUTCFullYear();
+
+  dateLabel.text = `${month}` + " " + `${dayOfMonth}` + ", " + `${year}`;
 }
 
 /**
