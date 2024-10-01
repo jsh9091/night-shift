@@ -38,7 +38,7 @@
 
   <text id="tempLabel" />
 
-  <text id="batteryLabel">100%</text>
+  <text id="batteryLabel" />
   <!--<image id="batteryIcon" href="battery.png" /> -->
 
 </svg>

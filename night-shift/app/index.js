@@ -27,6 +27,7 @@ import clock from "clock";
 import * as newfile from "./newfile";
 import { me as appbit } from "appbit";
 import { today as activity } from "user-activity";
+import { battery } from "power";
 
 // Update the clock every minute
 clock.granularity = "minutes";
@@ -36,9 +37,10 @@ const amLabel = document.getElementById("amLabel");
 const pmLabel = document.getElementById("pmLabel");
 const timeLabel = document.getElementById("timeLabel");
 const dateLabel = document.getElementById("dateLabel");
-const tempLabel = document.getElementById("tempLabel");
 const stepCountLabel = document.getElementById("stepCountLabel");
 const floorsLabel = document.getElementById("floorsLabel");
+const tempLabel = document.getElementById("tempLabel");
+const batteryLabel = document.getElementById("batteryLabel");
 
 /**
  * Update the display of clock values.
@@ -48,7 +50,8 @@ clock.ontick = (evt) => {
   amPmDisplay(evt);
   updateTimeDisplay(evt);
   updateDateField(evt);
-  updateExerciseFields() ;
+  updateExerciseFields();
+  updateBatteryLabel();
 };
 
 /**
@@ -176,4 +179,21 @@ function toFahrenheit(data) {
      data.unit = "Fahrenheit";
   }
   return data
+}
+
+/**
+ * Update the displayed battery level. 
+ * @param {*} charger 
+ * @param {*} evt 
+ */
+battery.onchange = (charger, evt) => {
+  updateBatteryLabel();
+};
+
+/**
+ * Updates the GUI for battery percentage. 
+ */
+function updateBatteryLabel() {
+  let percentSign = "&#x25";
+  batteryLabel.text = battery.chargeLevel + percentSign;
 }
