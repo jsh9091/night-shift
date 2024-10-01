@@ -24,8 +24,8 @@
 <svg>
   <rect id="background" />
 
-  <text id="amLabel">AM</text>
-  <text id="pmLabel">PM</text>
+  <text id="amLabel" />
+  <text id="pmLabel" />
 
   <text id="timeLabel" />
   

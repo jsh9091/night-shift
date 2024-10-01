@@ -46,8 +46,8 @@ text {
 #pmLabel {
   font-size: 30;
   text-length: 80;
-  text-anchor: start;
-  x: 22%;
+  text-anchor: end;
+  x: 92%;
   y: 15%;
 }
 

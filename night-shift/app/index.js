@@ -31,6 +31,8 @@ import { me as appbit } from "appbit";
 clock.granularity = "minutes";
 
 // Get a handle on the <text> elements
+const amLabel = document.getElementById("amLabel");
+const pmLabel = document.getElementById("pmLabel");
 const clockLabel = document.getElementById("timeLabel");
 const tempLabel = document.getElementById("tempLabel");
 
@@ -52,6 +54,8 @@ clock.ontick = (evt) => {
 
   // display time on main clock
   clockLabel.text = `${hours}:${displayMins}`;
+
+  amPmDisplay(rawHours)
 };
 
 /**
@@ -63,6 +67,20 @@ function zeroPad(i) {
     i = "0" + i;
   }
   return i;
+}
+
+/**
+ * Updates display of AM and PM indicators. 
+ * @param {*} rawHours 
+ */
+function amPmDisplay(rawHours) {
+  if (rawHours < 12) {
+    amLabel.text = "AM";
+    pmLabel.text = "";
+  } else {
+    amLabel.text = "";
+    pmLabel.text = "PM";
+  }
 }
 
 /**
