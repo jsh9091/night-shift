@@ -23,20 +23,47 @@
  */
 
 import document from "document";
-
-import * as clock from "./clock";
+import clock from "clock";
 import * as newfile from "./newfile";
 import { me as appbit } from "appbit";
 
-const time = document.getElementById("time");
+// Update the clock every minute
+clock.granularity = "minutes";
+
+// Get a handle on the <text> elements
+const clockLabel = document.getElementById("time");
 const details = document.getElementById("details");
 
 /**
- * Initialize clock. 
+ * Update the display of clock values.
+ * @param {*} evt 
  */
-clock.initialize("minutes", data => {
-  time.text = data.time;
-});
+clock.ontick = (evt) => {
+
+  // get time information from API
+  let todayDate = evt.date;
+  let rawHours = todayDate.getHours();
+
+  // 12 hour format
+  let hours = rawHours % 12 || 12;
+
+  let mins = todayDate.getMinutes();
+  let displayMins = zeroPad(mins);
+
+  // display time on main clock
+  clockLabel.text = `${hours}:${displayMins}`;
+};
+
+/**
+ * Add zero in front of numbers < 10
+ * @param {number} i
+ */
+function zeroPad(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
 
 /**
  * Receive and process new tempature data. 
@@ -49,12 +76,11 @@ newfile.initialize(data => {
   } else {
     details.text = "----";
   }
-  clock.tick();
 });
 
 /**
-* Convert Celsius to Fahrenheit
-* @param {object} data - WeatherData -
+* Convert temperature to Fahrenheit
+* @param {object} data WeatherData
 */
 function toFahrenheit(data) {
 
@@ -62,6 +88,5 @@ function toFahrenheit(data) {
      data.temperature =  Math.round((data.temperature * 1.8) + 32);
      data.unit = "Fahrenheit";
   }
-  
   return data
 }
