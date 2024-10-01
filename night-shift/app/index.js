@@ -42,9 +42,16 @@ const tempLabel = document.getElementById("tempLabel");
  * @param {*} evt 
  */
 clock.ontick = (evt) => {
-
+  amPmDisplay(evt);
+  updateTimeDisplay(evt);
   updateDateField(evt);
+};
 
+/**
+ * Updates display of time information. 
+ * @param {*} evt 
+ */
+function updateTimeDisplay(evt) {
   // get time information from API
   let todayDate = evt.date;
   let rawHours = todayDate.getHours();
@@ -57,9 +64,7 @@ clock.ontick = (evt) => {
 
   // display time on main clock
   timeLabel.text = `${hours}:${displayMins}`;
-
-  amPmDisplay(rawHours)
-};
+}
 
 /**
  * Add zero in front of numbers < 10
@@ -76,7 +81,9 @@ function zeroPad(i) {
  * Updates display of AM and PM indicators. 
  * @param {*} rawHours 
  */
-function amPmDisplay(rawHours) {
+function amPmDisplay(evt) {
+  let rawHours = evt.date.getHours();
+
   if (rawHours < 12) {
     amLabel.text = "AM";
     pmLabel.text = "";
