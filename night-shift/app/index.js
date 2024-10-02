@@ -28,6 +28,7 @@ import * as newfile from "./newfile";
 import { me as appbit } from "appbit";
 import { today as activity } from "user-activity";
 import { battery } from "power";
+import { FitFont } from 'fitfont'
 
 // Update the clock every minute
 clock.granularity = "minutes";
@@ -35,13 +36,18 @@ clock.granularity = "minutes";
 // Get a handle on the <text> elements
 const amLabel = document.getElementById("amLabel");
 const pmLabel = document.getElementById("pmLabel");
-const timeLabel = document.getElementById("timeLabel");
 const dateLabel = document.getElementById("dateLabel");
 const stepCountLabel = document.getElementById("stepCountLabel");
 const floorsLabel = document.getElementById("floorsLabel");
 const tempLabel = document.getElementById("tempLabel");
 const batteryLabel = document.getElementById("batteryLabel");
 const batteryIcon = document.getElementById("batteryIcon");
+
+const timeLabel = new FitFont({ 
+  id:'timeLabel',               // id of the symbol in the index.gui
+  font:'Pocket_Calculator_110', // name of the generated font folder
+  halign: 'middle' 
+})
 
 /**
  * Update the display of clock values.

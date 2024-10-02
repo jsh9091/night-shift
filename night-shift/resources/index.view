@@ -27,7 +27,20 @@
   <text id="amLabel" />
   <text id="pmLabel" />
 
-  <text id="timeLabel" />
+  <use href="#fitfont" id="timeLabel">
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+  </use>
+
   <text id="dateLabel" />
 
   <text id="stepCountLabel" />
