@@ -58,11 +58,9 @@ text {
 }
 
 #dateLabel {
-  font-family: System-Bold;
-  text-length: 80;
-  text-anchor: middle;
+  fill: red;
   x: 50%;
-  y: 60%;
+  y: 62%;
 }
 
 #stepCountLabel {

@@ -36,7 +36,6 @@ clock.granularity = "minutes";
 // Get a handle on the <text> elements
 const amLabel = document.getElementById("amLabel");
 const pmLabel = document.getElementById("pmLabel");
-const dateLabel = document.getElementById("dateLabel");
 const stepCountLabel = document.getElementById("stepCountLabel");
 const floorsLabel = document.getElementById("floorsLabel");
 const tempLabel = document.getElementById("tempLabel");
@@ -46,6 +45,12 @@ const batteryIcon = document.getElementById("batteryIcon");
 const timeLabel = new FitFont({ 
   id:'timeLabel',               // id of the symbol in the index.gui
   font:'Pocket_Calculator_110', // name of the generated font folder
+  halign: 'middle' 
+})
+
+const dateLabel = new FitFont({ 
+  id:'dateLabel',               // id of the symbol in the index.gui
+  font:'Pocket_Calculator_55',  // name of the generated font folder
   halign: 'middle' 
 })
 
@@ -131,7 +136,7 @@ function updateDateField(evt) {
   let dayOfMonth = evt.date.getDate();
   let year = evt.date.getUTCFullYear();
 
-  dateLabel.text = `${month}` + " " + `${dayOfMonth}` + ", " + `${year}`;
+  dateLabel.text = `${month}` + " " + `${dayOfMonth}` + " " + `${year}`;
 }
 
 /**
