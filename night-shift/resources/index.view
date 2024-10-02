@@ -24,6 +24,16 @@
 <svg>
   <rect id="background" />
 
+  <text id="sunLabel" />
+  <text id="monLabel" />
+  <text id="tueLabel" />
+  <text id="wedLabel" />
+  <text id="thuLabel" />
+  <text id="friLabel" />
+  <text id="satLabel" />
+
+  <rect x="0" y="17%" width="100%" height="1" fill="red" />
+
   <text id="amLabel" />
   <text id="pmLabel" />
 
@@ -48,6 +58,8 @@
     <use href="#fitfont-char" />
     <use href="#fitfont-char" />
   </use>
+
+  <rect x="0" y="68%" width="100%" height="1" fill="red" />
 
   <text id="stepCountLabel" />
   <image id="stepsIcon" href="steps.png" />

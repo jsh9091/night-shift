@@ -34,6 +34,13 @@ import { FitFont } from 'fitfont'
 clock.granularity = "minutes";
 
 // Get a handle on the <text> elements
+const sunLabel = document.getElementById("sunLabel");
+const monLabel = document.getElementById("monLabel");
+const tueLabel = document.getElementById("tueLabel");
+const wedLabel = document.getElementById("wedLabel");
+const thuLabel = document.getElementById("thuLabel");
+const friLabel = document.getElementById("friLabel");
+const satLabel = document.getElementById("satLabel");
 const amLabel = document.getElementById("amLabel");
 const pmLabel = document.getElementById("pmLabel");
 const stepCountLabel = document.getElementById("stepCountLabel");
@@ -59,6 +66,7 @@ const dateLabel = new FitFont({
  * @param {*} evt 
  */
 clock.ontick = (evt) => {
+  updateDayField(evt);
   amPmDisplay(evt);
   updateTimeDisplay(evt);
   updateDateField(evt);
@@ -137,6 +145,49 @@ function updateDateField(evt) {
   let year = evt.date.getUTCFullYear();
 
   dateLabel.text = `${month}` + " " + `${dayOfMonth}` + " " + `${year}`;
+}
+
+/**
+ * Updates day of week displayed. 
+ * @param {*} evt 
+ */
+function updateDayField(evt) {
+  // reset fields
+  sunLabel.text = "";
+  monLabel.text = "";
+  tueLabel.text = "";
+  wedLabel.text = "";
+  thuLabel.text = "";
+  friLabel.text = "";
+  satLabel.text = "";
+
+  const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let index = evt.date.getDay();
+  let day = dayNames[index];
+
+  switch (index) {
+    case 0:
+      sunLabel.text = day;
+      break;
+    case 1:
+      monLabel.text = day;
+      break;
+    case 2:
+      tueLabel.text = day;
+      break;
+    case 3:
+      wedLabel.text = day;
+      break;
+    case 4:
+      thuLabel.text = day;
+      break;
+    case 5:
+      friLabel.text = day;
+      break;
+    case 6:
+      satLabel.text = day;
+  }
 }
 
 /**
