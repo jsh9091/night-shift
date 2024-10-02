@@ -23,7 +23,7 @@
  */
 
 text {
-  font-size: 40;
+  font-size: 35;
   font-family: System-Regular;
   font-weight: regular;
   fill: red;
@@ -38,29 +38,29 @@ text {
 #amLabel {
   font-size: 30;
   text-length: 80;
-  text-anchor: start;
-  x: 8%;
-  y: 15%;
+  text-anchor: end;
+  x: 97%;
+  y: 26%;
 }
 
 #pmLabel {
   font-size: 30;
   text-length: 80;
   text-anchor: end;
-  x: 92%;
-  y: 15%;
+  x: 97%;
+  y: 40%;
 }
 
 #timeLabel {
   fill: red;
   x: 50%;
-  y: 45%;
+  y: 40%;
 }
 
 #dateLabel {
   fill: red;
   x: 50%;
-  y: 62%;
+  y: 60%;
 }
 
 #stepCountLabel {
@@ -94,27 +94,27 @@ text {
 #tempLabel {
   text-length: 128;
   text-anchor: end;
-  x: 88%;
+  x: 89%;
   y: 80%;
 }
 
 #tempIcon {
-  x: 90%;
+  x: 91%;
   y: 72%;
   width: "15";
-  height: "29" 
+  height: "27" 
 }
 
 #batteryLabel {
   text-length: 128;
   text-anchor: end;
-  x: 74%;
+  x: 75%;
   y: 93%;
 }
 
 #batteryIcon {
-  x: 76%;
-  y: 85%;
+  x: 77%;
+  y: 86%;
   width: "40";
-  height: "26" 
+  height: "25" 
 }
