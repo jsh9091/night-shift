@@ -41,6 +41,7 @@ const stepCountLabel = document.getElementById("stepCountLabel");
 const floorsLabel = document.getElementById("floorsLabel");
 const tempLabel = document.getElementById("tempLabel");
 const batteryLabel = document.getElementById("batteryLabel");
+const batteryIcon = document.getElementById("batteryIcon");
 
 /**
  * Update the display of clock values.
@@ -51,7 +52,7 @@ clock.ontick = (evt) => {
   updateTimeDisplay(evt);
   updateDateField(evt);
   updateExerciseFields();
-  updateBatteryLabel();
+  updateBattery();
 };
 
 /**
@@ -187,13 +188,39 @@ function toFahrenheit(data) {
  * @param {*} evt 
  */
 battery.onchange = (charger, evt) => {
-  updateBatteryLabel();
+  updateBattery();
 };
 
 /**
- * Updates the GUI for battery percentage. 
+ * Updates the battery battery icon and label.
+ */
+function updateBattery() {
+  updateBatteryLabel();
+  updateBatteryIcon();
+}
+
+/**
+ * Updates the battery lable GUI for battery percentage. 
  */
 function updateBatteryLabel() {
   let percentSign = "&#x25";
   batteryLabel.text = battery.chargeLevel + percentSign;
+}
+
+/**
+ * Updates what battery icon is displayed. 
+ */
+function updateBatteryIcon() {
+  const minFull = 70;
+  const minHalf = 30;
+  
+  if (battery.charging) {
+    batteryIcon.image = "battery-charging.png"
+  } else if (battery.chargeLevel > minFull) {
+    batteryIcon.image = "battery-full.png"
+  } else if (battery.chargeLevel < minFull && battery.chargeLevel > minHalf) {
+    batteryIcon.image = "battery-half.png"
+  } else if (battery.chargeLevel < minHalf) {
+    batteryIcon.image = "battery-low.png"
+  }
 }

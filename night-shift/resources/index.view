@@ -39,6 +39,5 @@
   <text id="tempLabel" />
 
   <text id="batteryLabel" />
-  <!--<image id="batteryIcon" href="battery.png" /> -->
-
+  <image id="batteryIcon" href="battery-full.png" />
 </svg>
