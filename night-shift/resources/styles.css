@@ -71,13 +71,13 @@ text {
 #stepCountLabel {
   text-length: 80;
   text-anchor: start;
-  x: 8%;
+  x: 18%;
   y: 80%;
 }
 
 #stepsIcon {
-  x: 8%;
-  y: 80%;
+  x: 5%;
+  y: 73%;
   width: "35";
   height: "25" 
 }
@@ -85,8 +85,15 @@ text {
 #floorsLabel {
   text-length: 80;
   text-anchor: start;
-  x: 8%;
+  x: 18%;
   y: 93%;
+}
+
+#floorsIcon {
+  x: 5%;
+  y: 86%;
+  width: "40";
+  height: "25" 
 }
 
 #tempLabel {

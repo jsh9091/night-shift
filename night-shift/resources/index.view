@@ -31,10 +31,10 @@
   <text id="dateLabel" />
 
   <text id="stepCountLabel" />
-  <!--<image id="stepsIcon" href="steps.png" /> -->
+  <image id="stepsIcon" href="steps.png" />
 
   <text id="floorsLabel" />
-  <!--<image id="floorsIcon" href="floors.png" /> -->
+  <image id="floorsIcon" href="floors.png" />
 
   <text id="tempLabel" />
 
