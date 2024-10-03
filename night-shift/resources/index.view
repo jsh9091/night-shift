@@ -34,8 +34,14 @@
 
   <rect x="0" y="17%" width="100%" height="1" fill="red" />
 
-  <text id="amLabel" />
-  <text id="pmLabel" />
+  <use href="#fitfont" id="amLabel">
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+  </use>
+  <use href="#fitfont" id="pmLabel">
+    <use href="#fitfont-char" />
+    <use href="#fitfont-char" />
+  </use>
 
   <use href="#fitfont" id="timeLabel">
     <use href="#fitfont-char" />

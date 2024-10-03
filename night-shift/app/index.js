@@ -41,8 +41,6 @@ const wedLabel = document.getElementById("wedLabel");
 const thuLabel = document.getElementById("thuLabel");
 const friLabel = document.getElementById("friLabel");
 const satLabel = document.getElementById("satLabel");
-const amLabel = document.getElementById("amLabel");
-const pmLabel = document.getElementById("pmLabel");
 const stepCountLabel = document.getElementById("stepCountLabel");
 const floorsLabel = document.getElementById("floorsLabel");
 const tempLabel = document.getElementById("tempLabel");
@@ -58,7 +56,19 @@ const timeLabel = new FitFont({
 const dateLabel = new FitFont({ 
   id:'dateLabel',               // id of the symbol in the index.gui
   font:'Pocket_Calculator_55',  // name of the generated font folder
-  halign: 'middle' 
+  halign: 'middle'
+})
+
+const amLabel = new FitFont({ 
+  id:'amLabel',                 // id of the symbol in the index.gui
+  font:'Pocket_Calculator_35',  // name of the generated font folder
+  halign: 'end' 
+})
+
+const pmLabel = new FitFont({ 
+  id:'pmLabel',                 // id of the symbol in the index.gui
+  font:'Pocket_Calculator_35',  // name of the generated font folder
+  halign: 'end' 
 })
 
 /**

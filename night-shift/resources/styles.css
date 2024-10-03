@@ -87,17 +87,13 @@ text {
 }
 
 #amLabel {
-  font-size: 30;
-  text-length: 80;
-  text-anchor: end;
+  fill: red;
   x: 97%;
   y: 31%;
 }
 
 #pmLabel {
-  font-size: 30;
-  text-length: 80;
-  text-anchor: end;
+  fill: red;
   x: 97%;
   y: 45%;
 }
