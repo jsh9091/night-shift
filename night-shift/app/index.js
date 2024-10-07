@@ -38,9 +38,14 @@ const tempLabel = document.getElementById("tempLabel");
 newfile.initialize(data => {
   if (appbit.permissions.granted("access_location") 
       && appbit.permissions.granted("run_background")) {
-    data = toFahrenheit(data);
+
     let degreeSymbol = "\u00B0";
-    tempLabel.text = `${data.temperature}` + degreeSymbol + `F`;
+    
+    if (data.unit.toLowerCase() === "celsius") {
+      tempLabel.text = `${data.temperature}` + degreeSymbol + `C`;
+    } else {
+      tempLabel.text = `${toFahrenheit(data)}` + degreeSymbol + `F`;
+    }
   } else {
     tempLabel.text = "----";
   }
