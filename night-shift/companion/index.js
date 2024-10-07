@@ -59,7 +59,8 @@ function sendData(data) {
   });
 }
 
-if (companion.permissions.granted("access_location")) {
+if (companion.permissions.granted("access_location") 
+    && appbit.permissions.granted("run_background")) {
   // Refresh on companion launch
   refreshData();
 
@@ -67,5 +68,5 @@ if (companion.permissions.granted("access_location")) {
   companion.wakeInterval = wakeTime;
   companion.addEventListener("wakeinterval", refreshData);
 } else {
-  console.error("This app requires the access_location permission.");
+  console.error("This app requires the access_location and run_background permissions.");
 }

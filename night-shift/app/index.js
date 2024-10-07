@@ -36,7 +36,8 @@ const tempLabel = document.getElementById("tempLabel");
  * Receive and process new tempature data. 
  */
 newfile.initialize(data => {
-  if (appbit.permissions.granted("access_location")) {
+  if (appbit.permissions.granted("access_location") 
+      && appbit.permissions.granted("run_background")) {
     data = toFahrenheit(data);
     let degreeSymbol = "\u00B0";
     tempLabel.text = `${data.temperature}` + degreeSymbol + `F`;
