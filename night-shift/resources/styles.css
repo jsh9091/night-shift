@@ -100,25 +100,25 @@ text {
 
 #timeLabel {
   fill: red;
-  x: 50%;
+  x: 48%;
   y: 45%;
 }
 
 #dateLabel {
   fill: red;
-  x: 50%;
-  y: 63%;
+  x: 48%;
+  y: 62%;
 }
 
 #stepCountLabel {
   text-length: 80;
   text-anchor: start;
-  x: 18%;
+  x: 19%;
   y: 80%;
 }
 
 #stepsIcon {
-  x: 5%;
+  x: 6%;
   y: 73%;
   width: "35";
   height: "25" 
@@ -127,12 +127,12 @@ text {
 #floorsLabel {
   text-length: 80;
   text-anchor: start;
-  x: 23%;
+  x: 24%;
   y: 93%;
 }
 
 #floorsIcon {
-  x: 10%;
+  x: 11%;
   y: 86%;
   width: "35";
   height: "24" 
@@ -141,12 +141,12 @@ text {
 #tempLabel {
   text-length: 128;
   text-anchor: end;
-  x: 89%;
+  x: 87%;
   y: 80%;
 }
 
 #tempIcon {
-  x: 91%;
+  x: 89%;
   y: 72%;
   width: "16";
   height: "29" 
@@ -155,12 +155,12 @@ text {
 #batteryLabel {
   text-length: 128;
   text-anchor: end;
-  x: 75%;
+  x: 73%;
   y: 93%;
 }
 
 #batteryIcon {
-  x: 77%;
+  x: 75%;
   y: 86%;
   width: "40";
   height: "25" 
