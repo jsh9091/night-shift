@@ -73,30 +73,11 @@ const stepCountLabel = document.getElementById("stepCountLabel");
 const floorsLabel = document.getElementById("floorsLabel");
 const batteryLabel = document.getElementById("batteryLabel");
 const batteryIcon = document.getElementById("batteryIcon");
-
-const timeLabel = new FitFont({ 
-  id:'timeLabel',               // id of the symbol in the index.gui
-  font:'Pocket_Calculator_110', // name of the generated font folder
-  halign: 'middle' 
-})
-
-const dateLabel = new FitFont({ 
-  id:'dateLabel',               // id of the symbol in the index.gui
-  font:'Pocket_Calculator_55',  // name of the generated font folder
-  halign: 'middle'
-})
-
-const amLabel = new FitFont({ 
-  id:'amLabel',                 // id of the symbol in the index.gui
-  font:'Pocket_Calculator_35',  // name of the generated font folder
-  halign: 'end' 
-})
-
-const pmLabel = new FitFont({ 
-  id:'pmLabel',                 // id of the symbol in the index.gui
-  font:'Pocket_Calculator_35',  // name of the generated font folder
-  halign: 'end' 
-})
+// get Fitfont labels
+const timeLabel = new FitFont({id:'timeLabel', font:'Pocket_Calculator_110', halign: 'middle'})
+const dateLabel = new FitFont({id:'dateLabel', font:'Pocket_Calculator_55', halign: 'middle'})
+const amLabel = new FitFont({id:'amLabel', font:'Pocket_Calculator_35', halign: 'end'})
+const pmLabel = new FitFont({id:'pmLabel', font:'Pocket_Calculator_35', halign: 'end'})
 
 /**
  * Update the display of clock values.
