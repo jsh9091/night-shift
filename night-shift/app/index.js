@@ -30,10 +30,38 @@ import { today as activity } from "user-activity";
 import { battery } from "power";
 import { FitFont } from 'fitfont'
 
+const tempLabel = document.getElementById("tempLabel");
+
+/**
+ * Receive and process new tempature data. 
+ */
+newfile.initialize(data => {
+  if (appbit.permissions.granted("access_location")) {
+    data = toFahrenheit(data);
+    let degreeSymbol = "\u00B0";
+    tempLabel.text = `${data.temperature}` + degreeSymbol + `F`;
+  } else {
+    tempLabel.text = "----";
+  }
+});
+
+/**
+* Convert temperature to Fahrenheit
+* @param {object} data WeatherData
+*/
+function toFahrenheit(data) {
+
+  if (data.unit.toLowerCase() === "celsius") {
+     data.temperature =  Math.round((data.temperature * 1.8) + 32);
+     data.unit = "Fahrenheit";
+  }
+  return data
+}
+
 // Update the clock every minute
 clock.granularity = "minutes";
 
-// Get a handle on the <text> elements
+// Get a handle on clcok label elements
 const sunLabel = document.getElementById("sunLabel");
 const monLabel = document.getElementById("monLabel");
 const tueLabel = document.getElementById("tueLabel");
@@ -43,7 +71,6 @@ const friLabel = document.getElementById("friLabel");
 const satLabel = document.getElementById("satLabel");
 const stepCountLabel = document.getElementById("stepCountLabel");
 const floorsLabel = document.getElementById("floorsLabel");
-const tempLabel = document.getElementById("tempLabel");
 const batteryLabel = document.getElementById("batteryLabel");
 const batteryIcon = document.getElementById("batteryIcon");
 
@@ -226,32 +253,6 @@ function getSteps() {
         ? `${Math.floor(val / 1000)},${("00" + (val % 1000)).slice(-3)}`
         : val,
   };
-}
-
-/**
- * Receive and process new tempature data. 
- */
-newfile.initialize(data => {
-  if (appbit.permissions.granted("access_location")) {
-    data = toFahrenheit(data);
-    let degreeSymbol = "\u00B0";
-    tempLabel.text = `${data.temperature}` + degreeSymbol + `F`;
-  } else {
-    tempLabel.text = "----";
-  }
-});
-
-/**
-* Convert temperature to Fahrenheit
-* @param {object} data WeatherData
-*/
-function toFahrenheit(data) {
-
-  if (data.unit.toLowerCase() === "celsius") {
-     data.temperature =  Math.round((data.temperature * 1.8) + 32);
-     data.unit = "Fahrenheit";
-  }
-  return data
 }
 
 /**
