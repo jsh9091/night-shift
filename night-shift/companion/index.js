@@ -60,7 +60,7 @@ function sendData(data) {
 }
 
 if (companion.permissions.granted("access_location") 
-    && appbit.permissions.granted("run_background")) {
+    && companion.permissions.granted("run_background")) {
   // Refresh on companion launch
   refreshData();
 

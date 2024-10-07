@@ -28,6 +28,7 @@ import * as newfile from "./newfile";
 import { me as appbit } from "appbit";
 import { today as activity } from "user-activity";
 import { battery } from "power";
+import { preferences } from "user-settings";
 import { FitFont } from 'fitfont'
 
 const tempLabel = document.getElementById("tempLabel");
@@ -40,7 +41,6 @@ newfile.initialize(data => {
       && appbit.permissions.granted("run_background")) {
 
     let degreeSymbol = "\u00B0";
-    
     if (data.unit.toLowerCase() === "celsius") {
       tempLabel.text = `${data.temperature}` + degreeSymbol + `C`;
     } else {
@@ -56,7 +56,6 @@ newfile.initialize(data => {
 * @param {object} data WeatherData
 */
 function toFahrenheit(data) {
-
   if (data.unit.toLowerCase() === "celsius") {
      data.temperature =  Math.round((data.temperature * 1.8) + 32);
      data.unit = "Fahrenheit";
@@ -124,10 +123,15 @@ clock.ontick = (evt) => {
 function updateTimeDisplay(evt) {
   // get time information from API
   let todayDate = evt.date;
-  let rawHours = todayDate.getHours();
+  let hours = todayDate.getHours();
 
-  // 12 hour format
-  let hours = rawHours % 12 || 12;
+  if (preferences.clockDisplay === "12h") {
+    // 12 hour format
+    hours = hours % 12 || 12;
+  } else {
+    // 24 hour format
+    hours = zeroPad(hours);
+  }
 
   let mins = todayDate.getMinutes();
   let displayMins = zeroPad(mins);
@@ -149,7 +153,7 @@ function zeroPad(i) {
 
 /**
  * Updates display of AM and PM indicators. 
- * @param {*} rawHours 
+ * @param {*} evt 
  */
 function amPmDisplay(evt) {
   let rawHours = evt.date.getHours();
