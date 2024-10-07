@@ -41,11 +41,7 @@ newfile.initialize(data => {
       && appbit.permissions.granted("run_background")) {
 
     let degreeSymbol = "\u00B0";
-    if (data.unit.toLowerCase() === "celsius") {
-      tempLabel.text = `${data.temperature}` + degreeSymbol + `C`;
-    } else {
-      tempLabel.text = `${toFahrenheit(data)}` + degreeSymbol + `F`;
-    }
+    tempLabel.text = `${toFahrenheit(data)}` + degreeSymbol + `F`;
   } else {
     tempLabel.text = "----";
   }
