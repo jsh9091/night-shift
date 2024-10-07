@@ -66,7 +66,7 @@ function toFahrenheit(data) {
 // Update the clock every minute
 clock.granularity = "minutes";
 
-// Get a handle on clcok label elements
+// Get a handle on GUI label elements
 const sunLabel = document.getElementById("sunLabel");
 const monLabel = document.getElementById("monLabel");
 const tueLabel = document.getElementById("tueLabel");
