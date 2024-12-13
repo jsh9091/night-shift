@@ -28,7 +28,7 @@ import * as newfile from "./newfile";
 import { me as appbit } from "appbit";
 import { today as activity } from "user-activity";
 import { battery } from "power";
-import { preferences } from "user-settings";
+import { preferences, units } from "user-settings";
 import { FitFont } from 'fitfont'
 
 const tempLabel = document.getElementById("tempLabel");
@@ -38,16 +38,20 @@ const tempLabel = document.getElementById("tempLabel");
  */
 newfile.initialize(data => {
   if (appbit.permissions.granted("access_location")) {
-    data = toFahrenheit(data);
+    
+    data = units.temperature === "C" ? data : toFahrenheit(data);
     let degreeSymbol = "\u00B0";
-    tempLabel.text = `${data.temperature}` + degreeSymbol + `F`;
+    let lettertMarker = units.temperature === "C" ? `C` : `F`;
+    
+    // set values in GUI
+    tempLabel.text = `${data.temperature}` + degreeSymbol + lettertMarker;
   } else {
     tempLabel.text = "----";
   }
 });
 
 /**
-* Convert temperature to Fahrenheit
+* Convert temperature value to Fahrenheit
 * @param {object} data WeatherData
 */
 function toFahrenheit(data) {
@@ -74,10 +78,10 @@ const floorsLabel = document.getElementById("floorsLabel");
 const batteryLabel = document.getElementById("batteryLabel");
 const batteryIcon = document.getElementById("batteryIcon");
 // get Fitfont labels
-const timeLabel = new FitFont({id:'timeLabel', font:'Pocket_Calculator_110', halign: 'middle'})
-const dateLabel = new FitFont({id:'dateLabel', font:'Pocket_Calculator_55', halign: 'middle'})
-const amLabel = new FitFont({id:'amLabel', font:'Pocket_Calculator_35', halign: 'end'})
-const pmLabel = new FitFont({id:'pmLabel', font:'Pocket_Calculator_35', halign: 'end'})
+const timeLabel = new FitFont({id:'timeLabel', font:'Pocket_Calculator_110', halign: 'middle'});
+const dateLabel = new FitFont({id:'dateLabel', font:'Pocket_Calculator_55', halign: 'middle'});
+const amLabel = new FitFont({id:'amLabel', font:'Pocket_Calculator_35', halign: 'end'});
+const pmLabel = new FitFont({id:'pmLabel', font:'Pocket_Calculator_35', halign: 'end'});
 
 /**
  * Update the display of clock values.
